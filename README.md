@@ -1,3 +1,3 @@
-# ugjka.net-radio
+# ugjka.net-webcam
 
-https://ugjka.net/radio
+https://ugjka.net/webcam

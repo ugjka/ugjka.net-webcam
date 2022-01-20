@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>UGJKA.NET</title>
-    <meta name="description" content="ugjka's favourite music videos">
+    <meta name="description" content="ugjka's webcam">
     <meta name="author" content="ugjka">
     <style>
         html {
@@ -23,70 +23,30 @@
         }
 
         h1 {
+            text-align: center;
             font-family: Arial, Helvetica, sans-serif;
             width: 100%;
             background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
         }
 
         .top {
-            display: flex;
-        }
-
-        button {
-            font-family: Arial, Helvetica, sans-serif;
-            margin-top: 21.440px;
-            margin-bottom: 21.440px;
-            color: white;
-            background-color: black;
-        }
-
-        button:hover {
-            color: black;
-            background-color: white;
-        }
-
-        .root {
-            margin-right: 20%;
-            margin-left: 20%;
-        }
-
-        @media only screen and (max-width: 800px) {
-            .root {
-                margin-right: 0px;
-                margin-left: 0px;
-            }
-
-            .top {
-                margin-left: 75px;
-            }
-        }
-
-
-        .wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            /* 16:9 */
-            height: 0;
-        }
-
-        .wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        @media only screen and (max-height: 546px) {
-            .wrapper {
-                padding-bottom: 35%;
-            }
+            margin-left: 75px;
         }
 
         .home {
             position: fixed;
             top: 10px;
             left: 10px;
+        }
+
+        .image {
+            height: 77vh;
+            text-align: center;
+        }
+
+        .image img {
+            max-width: 100%;
+            max-height: 100%;
         }
     </style>
 
@@ -96,189 +56,17 @@
     <a class="home" href="/"><img src="./axe.png" alt="home"></a>
     <div class="root">
         <div class="top">
-            <h1>Press Play!</h1>
-            <button onclick="playNext()" type="button">Skip...</button>
+            <h1>My crappy webcam!</h1>
         </div>
-        <div class="wrapper">
-            <div class="player"></div>
+        <div class="image">
+            <img id="shot" src="./stop.jpg" />
         </div>
     </div>
-    <script src="./yt-player.js"></script>
     <script>
-        let videos = [
-            "VvwAX7wnAJI",
-            "xVnvqxmbOOA",
-            "3kNtS8N_e7M",
-            "QTscEhk8FBk",
-            "7wQ_qs-vn2E",
-            "MMUZEMoBi4w",
-            "NG3LPrqNStM",
-            "GZIjzo7VrV0",
-            "XAiarWPRn0s",
-            "AlDHNsfQ_b0",
-            "jv3i7STJofk",
-            "rEamE0MYPkg",
-            "6-v1b9waHWY",
-            "mRD0-GxqHVo",
-            "ZAqnXcqNCx4",
-            "pFl7DhdGGzo",
-            "Wqf-U_fibV0",
-            "Orffm0v0mS0",
-            "1FH-q0I1fJY",
-            "yzxwujoJLNc",
-            "NUnudDdbu4I",
-            "HJOHoiPGpac",
-            "7w6R4I7I3wA",
-            "XoEXjFn3CMs",
-            "PeAUf-VeXbE",
-            "NkPKIlYZycE",
-            "-tN-HWwh8ZI",
-            "lRyArAeuzUg",
-            "Q9Gv988wIZA",
-            "CncbXK6vURA",
-            "FDHP8OJMpuU",
-            "iwo_HeW4G-Q",
-            "w4s6H4ku6ZY",
-            "txoNcmFm82s",
-            "4ywuu2pKraQ",
-            "CqaAs_3azSs",
-            "TEEgRBtTcVw",
-            "cAyMpUFboA4",
-            "fGmmQ69L6Ac",
-            "l0wPHAau1ts",
-            "menq51AQDIc",
-            "nhR2WdgUeQY",
-            "8h-HnjaSrz8",
-            "YjgDuImuD_4",
-            "p1JWpidoxSo",
-            "y88i4u5idR0",
-            "VfCN7CtNQz8",
-            "2qzJ8Aujxxk",
-            "8uz0rr_7O90",
-            "cEvG0bcNRqs",
-            "GFKahRUUCpY",
-            "Vu8B9szplmM",
-            "OPaoPDBxWBI",
-            "W95RaVk7wco",
-            "SiAuAJBZuGs",
-            "hTJtAh-d264",
-            "wxj0_WuORos",
-            "2teI5QGA9ck",
-            "UVHOAZ6UIAA",
-            "9wKLksJNB2U",
-            "EzAPyCbLldw",
-            "L0ihC0Ge19M",
-            "9N3sMkTD5xk",
-            "-v1e8iYzhtk",
-            "FBBJqL4h8-4",
-            "ICruF30bCEI",
-            "OBrwwZbDrTg",
-            "pf16XVY8qKA",
-            "7LXt4UOoUCw",
-            "1qUxlTNIXpE",
-            "RDsZBVjJ1_s",
-            "LikX0sacasM",
-            "nOyIAAVz0bg",
-            "-5u_sa_SVuw",
-            "KKQPGPR-Sho",
-            "D6cFClH2NJQ",
-            "VgwcPiCjQ-0",
-            "4ujS6D3OBcs",
-            "165h3-z_Qj0",
-            "Y8VyeC5FKso",
-            "NCGC1WzX6dc",
-            "IPpz1qqzSLA",
-            "3Qw-GCCRpxc",
-            "9uz_0W3iNNY",
-            "QBaktIGZsa4",
-            "mV5EpIzGDsE",
-            "zsyjS_vJfkw",
-            "fXO-HnjLLiY",
-            "pBX0HR4HLMI",
-            "3XPOPNJzkLA",
-            "GuPGZZgNFsU",
-            "AjuUhPjyoss",
-            "DrdK_tifZ-4",
-            "x8l_mOZ7SB4",
-            "ubE_ac2wYPQ",
-            "0BNiH0qiQ6M",
-            "uojLN9fPoqQ",
-            "dngTAVf2jiI",
-            "Uzf4GgUdJRk",
-            "dNDXoOXniC8",
-            "wZnS5Uq_qKk",
-            "2XcnijgjpdI",
-            "rLi4MAQhfso",
-            "HrcbUsjKc4I",
-            "qsAvlk3evOc",
-            "PpfJfSG_c1g",
-            "rWK1jJiGKPM",
-            "QHe1PvKALaY",
-            "9e9NSMY8QiQ",
-            "HNPrs17gZ2o",
-            "WLUDxVezNes",
-            "HEFWES1hn1M",
-            "vZYbEL06lEU",
-            "PGNiXGX2nLU",
-            "OOAMfUJ3tsc",
-            "6WJFjXtHcy4",
-            "-Kn4Jr9uTyk",
-            "WXVUFthAfdk",
-            "_q6t8OthI5o",
-            "do0bwsqBd30",
-            "L_m12MnS85k",
-            "-ihlRO_QeHQ",
-            "d1QRkQGX1jA",
-            "XWvGff3yCQs",
-            "ktoaj1IpTbw",
-            "FMSmYvwvXTI",
-            "Ja9IUKElT5w",
-            "NOtvy-zioO0",
-            "RCAHULR-_V4",
-            "csVhNAEmacE",
-        ];
-        function cryptoRandom() {
-            let crypto = window.crypto;
-            let arr = new Uint32Array(1);
-            crypto.getRandomValues(arr);
-            return arr[0] / (Math.pow(2, 32) - 1);
-        }
-        function shuffleArray(array) {
-            var currentIndex = array.length, randomIndex;
-            while (currentIndex != 0) {
-                randomIndex = Math.floor(cryptoRandom() * currentIndex);
-                currentIndex--;
-                [array[currentIndex], array[randomIndex]] = [
-                    array[randomIndex], array[currentIndex]];
-            }
-            return array;
-        }
-        for (let i = 0; i < 222; i++) {
-            videos = shuffleArray(videos);
-        }
-        let opts = {
-            modestBranding: true,
-            related: false,
-            annotations: false,
-            fullscreen: false,
-            keyboard: false,
-            captions: false,
-            controls: false,
-        }
-        player = new ytPlayer(".player", opts);
-        let i = 0;
-        function playNext() {
-            if (i >= videos.length - 1) {
-                i = 0;
-            } else {
-                i++;
-            }
-            player.load(videos[i], true);
-        }
-        player.on('ended', () => { playNext(); })
-        player.on('unplayable', () => { playNext(); })
-        player.setVolume(100);
-        player.load(videos[i]);
+        document.getElementById('shot').src = "/live";
+        setTimeout(function () {
+            document.getElementById('shot').src = "./stop.jpg";
+        }, 60 * 1000 * 5);
     </script>
 </body>
 
