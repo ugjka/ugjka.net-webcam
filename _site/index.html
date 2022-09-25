@@ -15,7 +15,7 @@
         }
 
         body {
-            background: url(background.png);
+            background: url(background.jpg);
             background-repeat: no-repeat;
             background-size: cover;
             background-attachment: fixed;
@@ -60,11 +60,13 @@
         </div>
         <div class="image">
             <img id="shot" src="./stop.jpg" />
+            <br>
+            <small>
+                Powered by
+                <a href="https://github.com/nola-a/mjpeg2http">mjpeg2http</a>
+            </small>
         </div>
-        <small>
-            Powered by
-            <a href="https://github.com/nola-a/mjpeg2http">mjpeg2http</a>
-        </small>
+
     </div>
     <script>
         document.getElementById('shot').src = "/live";
