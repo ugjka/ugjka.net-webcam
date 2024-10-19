@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>UGJKA.NET</title>
-    <meta name="description" content="ugjka's webcam">
+    <meta name="description" content="ugjka's irc channel">
     <meta name="author" content="ugjka">
     <style>
         html {
@@ -23,7 +23,7 @@
             text-align: center;
             font-family: Arial, Helvetica, sans-serif;
             width: 100%;
-            background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+            background-image: linear-gradient(to left, blue, red);
         }
 
         .top {
@@ -36,14 +36,9 @@
             left: 10px;
         }
 
-        .image {
-            height: 77vh;
-            text-align: center;
-        }
-
-        .image img {
-            max-width: 100%;
-            max-height: 100%;
+        .irc {
+            width: 100%;
+            height: 80vh;
         }
     </style>
 
@@ -53,24 +48,11 @@
     <a class="home" href="/"><img src="./axe.png" alt="home"></a>
     <div class="root">
         <div class="top">
-            <h1>My crappy webcam!</h1>
+            <h1>IRC</h1>
         </div>
-        <div class="image">
-            <img id="shot" src="./stop.jpg" />
-            <br>
-            <small>
-                Powered by
-                <a href="https://github.com/nola-a/mjpeg2http">mjpeg2http</a>
-            </small>
-        </div>
+        <embed src="https://web.libera.chat/#ugjka" class="irc">
 
     </div>
-    <script>
-        document.getElementById('shot').src = "/live";
-        setTimeout(function () {
-            document.getElementById('shot').src = "./stop.jpg";
-        }, 60 * 1000 * 5);
-    </script>
 </body>
 
 </html>
